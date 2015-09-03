@@ -3,16 +3,19 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><button class="play" type="button">play</button><button class="enqueue" type="button">enqueue</button></td>'),
+  template: _.template('<td class="col-md-2"><%= artist %></td><td class="col-md-2"><%= title %></td>\
+                        <td class="col-md-2"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>\
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>\
+                        <td class="col-md-2"><%= playCount %></td>'),
 
   //we need an even that is on XXXX, model.enqueue
   events: {
-    'click td button.enqueue': function() {
-      debugger;
+    'click span.glyphicon-plus': function() {
+      //debugger;
       this.model.enqueue();
     },
-    'click td button.play'   : function() {
-      debugger;
+    'click span.glyphicon-play'   : function() {
+      //debugger;
       this.model.play();
     }
   },

@@ -16,8 +16,8 @@ var AppModel = Backbone.Model.extend({
     //if the library yells 'enqueue' 
     params.library.on('enqueue', function(song){
       //call add on songqueue
-      debugger;
-      if(this.get('currentSong').url === undefined){
+      //debugger;
+      if(this.get('currentSong').get('url') === undefined){
         this.set('currentSong', song);
       }else {
             this.get('songQueue').add(song);
@@ -30,7 +30,7 @@ var AppModel = Backbone.Model.extend({
     }, this);
 
     params.library.on('dequeue', function () {
-      debugger;
+      //debugger;
       console.log("SongQueueView heard the call to remove."  + this);
       var myQueue = this.get('songQueue');
       if(myQueue.length > 0){
