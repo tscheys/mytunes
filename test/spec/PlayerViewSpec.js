@@ -3,23 +3,24 @@ describe('PlayerView', function() {
 
   beforeEach(function() {
 
-    library = new Songs([
-      {
-        url: "mp3s/08 4 Page Letter.mp3",
-        title: "4 Page Letter",
-        artist: "Aaliyah"
-      },
-      {
-        url: "mp3s/11 We Need A Resolution.mp3",
-        title: "We Need A Resolution",
-        artist: "Aaliyah"
-      },
-      {
-        url: "mp3s/A Third Song.mp3",
-        title: "The Third Song",
-        artist: "Aaliyah"
-      }
-    ]);
+    library = new Songs(songData);
+    //   [  SONGS THAT DONT EXIST.
+    //   {
+    //     url: "mp3s/08 4 Page Letter.mp3",
+    //     title: "4 Page Letter",
+    //     artist: "Aaliyah"
+    //   },
+    //   {
+    //     url: "mp3s/11 We Need A Resolution.mp3",
+    //     title: "We Need A Resolution",
+    //     artist: "Aaliyah"
+    //   },
+    //   {
+    //     url: "mp3s/A Third Song.mp3",
+    //     title: "The Third Song",
+    //     artist: "Aaliyah"
+    //   }
+    // ]);
     // playerView is created in AppView initialize
     // access with appView.playerView
     appView = new AppView({model: new AppModel({library: library})});
@@ -32,7 +33,7 @@ describe('PlayerView', function() {
   });
 
   describe('Song transitions', function() {
-    xit('dequeues a song when finished playing & plays the next song', function() {
+    it('dequeues a song when finished playing & plays the next song', function() {
       var firstSong = library.at(0),
           secondSong = library.at(1),
           thirdSong = library.at(2),
@@ -41,6 +42,7 @@ describe('PlayerView', function() {
       songQueue.add(firstSong);
       songQueue.add(secondSong);
       songQueue.add(thirdSong);
+      debugger;
       // play the first song
       songQueue.playFirst();
       expect(appView.playerView.model).to.equal(firstSong);

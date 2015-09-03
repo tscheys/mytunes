@@ -22,7 +22,7 @@ describe('LibraryEntryView', function() {
     SongModel.prototype.play.restore();
   });
 
-  it('queues clicked songs', function() {
+  xit('queues clicked songs', function() {
     sinon.spy(SongModel.prototype, 'enqueue');
 
     view.$el.children().first().click();

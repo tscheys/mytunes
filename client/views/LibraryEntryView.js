@@ -3,10 +3,14 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
+  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><button type="button"></button></td>'),
 
+  //we need an even that is on XXXX, model.enqueue
   events: {
-    'click': function() {
+    'click td button': function() {
+      this.model.enqueue();
+    },
+    'click td'       : function() {
       this.model.play();
     }
   },
