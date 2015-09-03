@@ -23,7 +23,6 @@ describe('SongQueue', function() {
     describe('when it is the only song in the song queue', function() {
       it('plays it', function() {
         var songQueue = new SongQueue();
-        debugger;
         songQueue.add(songData1);
         expect(playSpy).to.have.been.called;
       });
@@ -41,6 +40,7 @@ describe('SongQueue', function() {
   describe('when a song ends', function() {
     xit('removes the song from the queue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
+      var myPlayer = new PlayerView({model: songData1});
       song2 = songQueue.at(1);
       expect(songQueue.length).to.equal(2);
       songQueue.at(0).trigger('ended');
@@ -76,7 +76,7 @@ describe('SongQueue', function() {
   });
 
   describe('playFirst', function() {
-    xit('plays the first song in the queue', function() {
+    it('plays the first song in the queue', function() {
       sinon.spy(SongModel.prototype, 'play');
       var songQueue = new SongQueue(songData1);
       songQueue.playFirst();

@@ -2,6 +2,19 @@
 var SongQueue = Songs.extend({
 
   initialize: function() {
+    this.on('add', function () {
+      // debugger;
+      if(this.length === 1) {
+        this.playFirst();
+      }
+      this.trigger('songQueueRender', this);
+    }, this);
+    this.on('dequeue', function (collection) {
+      //debugger;
+      console.log("SongQueueView heard the call to remove."  + this);
+      this.dequeueSong();
+      this.playFirst();
+    }, this);
   },
 
   playFirst: function() {
