@@ -42,7 +42,6 @@ describe('PlayerView', function() {
       songQueue.add(firstSong);
       songQueue.add(secondSong);
       songQueue.add(thirdSong);
-      debugger;
       // play the first song
       songQueue.playFirst();
       expect(appView.playerView.model).to.equal(firstSong);

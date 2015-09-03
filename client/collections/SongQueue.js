@@ -5,11 +5,17 @@ var SongQueue = Songs.extend({
   },
 
   playFirst: function() {
-    this.firsst().play();
-    console.log(this.length);
-    this.remve(this.at(0));
-    console.log(this.length);
-    console.log(this.first());
+    this.first().play();
+  },
+  dequeueSong : function () {
+    this.remove(this.first());
   }
 
 });
+
+    // console.log(this.length);
+    // console.log(this);
+    // debugger;
+    // this.remove(this.model[0]).bind(this);
+    // console.log(this.length);
+    // console.log(this.first());
